@@ -1,7 +1,7 @@
 # XMP Interpolator for Lightroom Develop Settings
 
-A Python script that **interpolates (blends)** Lightroom develop settings between different values.
-Useful for timelapse sequences - especially holy grail timelapses - where smooth transitions between settings are important.
+A Python script that **interpolates (blends)** Lightroom develop settings between keyframes.
+Useful for timelapse sequences - especially holy grail timelapses, where smooth transitions between settings are important.
 
 ---
 
@@ -21,7 +21,7 @@ Useful for timelapse sequences - especially holy grail timelapses - where smooth
    - A list of keyframes.
    - A list of develop settings to interpolate.
 2. The script interpolates values between the keyframes using the chosen easing function.
-3. In Lightroom, use **Metadata → Read Metadata from File** to import the interpolated develop settings back into images. (make sure the XMP files are in the same folder as your images)
+3. In Lightroom, use **Metadata → Read Metadata from File** to import the interpolated develop settings back into images. (make sure the XMP files are in the same folder as your images).
 
 Easing functions are available to experiment with at https://easings.net/.
 
@@ -145,11 +145,11 @@ settings = {
 
 ## Notes
 
-- Easing functions are defined in `easing.py`. They could be fun to play with.
+- Easing functions are defined in `easing.py`. They could be fun to play around with.
 - The script expects your sequence images/XMP files to be ordered consistently (same naming/order as Lightroom sequence).
 
 ---
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the MIT License. See `LICENSE` for details.
