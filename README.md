@@ -31,6 +31,7 @@ Easing functions are available to experiment with at https://easings.net/.
 
 - Lightroom with XMP sidecar files enabled (Catalog Settings → Metadata → Automatically write changes into XMP), or use Metadata → Save Metadata to File to create sidecars.
 - Python 3.x.
+- exiftool (provided) - only required for XMP extraction
 
 If you use DNG or DNG based (GPR) images (Lightroom writes metadata into the file), set `"extractXMPfromImages": True` in the settings dictionary and the script will extract XMP sidecar files for you.
 
