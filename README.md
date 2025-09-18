@@ -76,15 +76,15 @@ Specify which develop settings to interpolate.
 **Parameter object format:**
 
 ```python
-Parameter(name, action = Action.Ease, actionData = Ease.Linear, namespace = "CRS")
+Parameter(name, action = Action.Ease, actionData = Ease.Linear, namespace = "crs")
 ```
 
 | Field | Type | Description |
 |---|---:|---|
 | `name` | string | Parameter name, e.g. `"Exposure2012"` or `"Temperature"`. |
 | `action` | `Action` enum | What to do with the parameter: `Action.Ease` (default) interpolates; `Action.Set` writes a fixed value. |
-| `actionData` | easing function or number | If `Action.Ease` provide an easing function (e.g. `Ease.Linear`). If `Action.Set` provide the value to apply. |
-| `namespace` | string | XMP attribute namespace. Defaults to `"CRS"` (normally you won't change this). |
+| `actionData` | easing function or number | If `Action.Ease`, provide an easing function (e.g. `Ease.Linear`). If `Action.Set`, provide the value to apply. |
+| `namespace` | string | XMP attribute namespace. Defaults to `"crs"` (you shouldn't need to change this). |
 
 ---
 
@@ -104,13 +104,13 @@ This interpolates 0 → 49, then 49 → 149. At least two keyframes are required
 
 ### `extractXMPfromImages` (boolean)
 
-Set to `true` if your images embed metadata (e.g. DNG/GPR). The script will extract XMP sidecars from image files.
+Set to `True` if your images embed metadata (e.g. DNG/GPR). The script will extract XMP sidecars from image files.
 
 ---
 
 ### `imageExtension` (string)
 
-Image file extension used when extracting XMP, e.g. `"dng"`, `"gpr"`. Only required when `extractXMPfromImages` is `true`.
+Image file extension used when extracting XMP, e.g. `"dng"`, `"gpr"`. Only required when `extractXMPfromImages` is `True`.
 
 ---
 
