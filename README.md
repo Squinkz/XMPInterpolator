@@ -76,21 +76,21 @@ Specify which develop settings to interpolate.
 **Parameter object format:**
 
 ```python
-Parameter(name, action = Action.Ease, actionData = Ease.Linear, namespace = "crs")
+Parameter(name, action = Action.EASE, actionData = Ease.Linear, namespace = "crs")
 ```
 
 | Field | Type | Description |
 |---|---:|---|
 | `name` | string | Parameter name, e.g. `"Exposure2012"` or `"Temperature"`. |
-| `action` | `Action` enum | What to do with the parameter: `Action.Ease` (default) interpolates; `Action.Set` writes a fixed value. |
-| `actionData` | easing function or number | If `Action.Ease`, provide an easing function (e.g. `Ease.Linear`). If `Action.Set`, provide the value to apply. |
+| `action` | `Action` enum | Operation to apply on the parameter:<br>`Action.EASE` (default): interpolate between keyframes<br>`Action.SET`: write a fixed value. |
+| `actionData` | easing function or number | If `Action.EASE`, provide an easing function (e.g. `Ease.Linear`).<br>If `Action.SET`, provide the value to apply. |
 | `namespace` | string | XMP attribute namespace. Defaults to `"crs"` (you shouldn't need to change this). |
 
 ---
 
 ### `keyframes` (list of integers)
 
-Zero-indexed image indices that define interpolation segments.
+List of image indices that define keyframes for interpolation.
 
 Example:
 
@@ -98,7 +98,9 @@ Example:
 "keyframes": [0, 49, 149]
 ```
 
-This interpolates 0 → 49, then 49 → 149. At least two keyframes are required.
+This interpolates from image index 0 to image index 49, then 49 → 149. At least two keyframes are required.
+
+> Note: The list is zero-indexed, so the first image is index 0, second image is index 1 etc.
 
 ---
 
@@ -126,7 +128,7 @@ settings = {
     [
         Parameter("Exposure2012"),
         Parameter("Temperature"),
-        Parameter("Contrast2012", action = Action.Set, actionData = 25)
+        Parameter("Contrast2012", action = Action.SET, actionData = 25)
     ],
 
     "keyframes":
@@ -140,13 +142,6 @@ settings = {
 
 }
 ```
-
----
-
-## Notes
-
-- Easing functions are defined in `easing.py`. They could be fun to play around with.
-- The script expects your sequence images/XMP files to be ordered consistently (same naming/order as Lightroom sequence).
 
 ---
 
